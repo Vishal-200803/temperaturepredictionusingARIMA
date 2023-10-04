@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: 'Dancing Script', cursive;
+            background-color: black;
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: white;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between; /* Position the elements at the ends */
+            align-items: center; /* Center vertically */
+            padding: 10px 30px; /* Add some padding for spacing */
+        }
+
+        .navbar a {
+            font-size: 18px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            margin-left: 20px; /* Add spacing between links */
+        }
+
+        .navbar a:hover {
+            background-color: rgba(0, 0, 0, 1);
+        }
+
+        h1 {
+            margin: 20px 0; /* Add margin to the title for spacing */
+            font-size: 36px;
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: 1.5px solid white;
+            white-space: nowrap;
+            animation: typing 2s steps(15), cursor 0.5s step-end infinite alternate;
+            font-size: 28px;
+        }
+
+        @keyframes cursor {
+            50%{
+                border-color: transparent;
+            }
+        }
+
+        @keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%; /* Set the final width to 100% */
+    }
+        }
+    @keyframes blink {
+    50% { border-color: transparent; }
+}
+
+.typewriter::after {
+    content: "|"; /* Display a blinking cursor */
+    position: absolute;
+    top: 0;
+    right: 0;
+    animation: blink 0.5s step-end infinite; /* Adjust the cursor animation duration as needed */
+}
+
+        form {
+            margin-top: 20px;
+        }
+
+        .btn {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div>
+            <h1>
+                <span class="typewriter">WeatherWhispers</span>
+            </h1>
+        </div>
+        <div>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+    <form action="{{ url_for('predict_temp') }}" method="get">
+        <input type="submit" value="Prediction Tool" class="btn">
+    </form>
+</body>
+</html>

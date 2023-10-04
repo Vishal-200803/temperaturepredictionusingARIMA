@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Prediction Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #007bff;
+        }
+
+        p {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        li strong {
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Temperature Prediction Results</h1>
+
+    <h2>Date Range:</h2>
+    <p>Start Date: {{ start_date }}</p>
+    <p>End Date: {{ end_date }}</p>
+
+    <h2>Predicted Temperatures:</h2>
+    <ul>
+        {% for date, temperature in predictions.items() %}
+            <li>
+                <strong>{{ date }}</strong>: {{ temperature|round(2)}}°C
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
